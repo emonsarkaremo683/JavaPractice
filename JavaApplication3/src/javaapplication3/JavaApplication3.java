@@ -1,20 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package javaapplication3;
 
-/**
- *
- * @author Admin
- */
+import java.util.Scanner;
+
+
 public class JavaApplication3 {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
-        // TODO code application logic here
+//        System.out.println("Enter times:");
+//        Scanner s = new Scanner(System.in);
+//        
+//        for(int i = 0; i < s.nextInt(); i++){
+//            System.out.println("Enter value");
+//            
+//            
+//            
+//            
+//        }
+
+    Scanner s = new Scanner(System.in);
+        System.out.println("Enter a value");
+    int a = s.nextInt();
+    int d = a / 3600;
+        a = a % 3600; 
+    int b= a / 60;
+    int c = a % 60;
+    
+        System.out.println( d + " Hour "+ b + " Minute " + c + " Second");
     }
+
     
 }
