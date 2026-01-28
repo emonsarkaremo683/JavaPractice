@@ -74,7 +74,6 @@ public class Exam {
             return 0;
         }
 
-        
         if (salary >= values[values.length - 1]) {
             return salary * tax[tax.length - 1] / 100.0;
         }
