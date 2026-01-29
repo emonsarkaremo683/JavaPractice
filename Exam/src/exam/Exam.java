@@ -74,16 +74,15 @@ public class Exam {
             return 0;
         }
 
-        if (salary >= values[values.length - 1]) {
-            return salary * tax[tax.length - 1] / 100.0;
-        }
-
         for (int i = 0; i < values.length; i++) {
-            if (salary <= values[i]) {
-                a = salary * tax[i] / 100.0;
-                break;
-            }
-        }
+    if (salary > values[i]) {
+        a += values[i] * tax[i] / 100.0;
+        salary -= values[i];
+    } else {
+        a += salary * tax[i] / 100.0;
+        break;
+    }
+}
         return a;
     }
 
