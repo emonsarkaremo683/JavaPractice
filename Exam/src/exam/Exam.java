@@ -8,18 +8,7 @@ public class Exam {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-//        System.out.println("Enter ur BMI");
-//        float a = sc.nextFloat();
-
-//        if (a < 18.5) {
-//            System.out.println("Underweight");
-//        } else if (a >= 18.5 && a < 25) {
-//            System.out.println("Normal");
-//        } else if (a >= 25 && a < 30) {
-//            System.out.println("Overweight");
-//        } else {
-//            System.out.println("Obese");
-//        }
+        
         int[] single = {8350, 33950, 82250, 171550, 372950, 372951};
 
         int[] married = {19700, 67900, 137050, 208850, 372950, 372951};
@@ -74,16 +63,15 @@ public class Exam {
             return 0;
         }
 
-        if (salary >= values[values.length - 1]) {
-            return salary * tax[tax.length - 1] / 100.0;
-        }
-
         for (int i = 0; i < values.length; i++) {
-            if (salary <= values[i]) {
-                a = salary * tax[i] / 100.0;
-                break;
-            }
-        }
+    if (salary > values[i]) {
+        a += values[i] * tax[i] / 100.0;
+        salary -= values[i];
+    } else {
+        a += salary * tax[i] / 100.0;
+        break;
+    }
+}
         return a;
     }
 
