@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class ArraySubcClass {
 
-    
-   
-
     public ArraySubcClass() {
 
     }
@@ -22,7 +19,7 @@ public class ArraySubcClass {
     }
 
     public int maxValue(int[] myArray) {
-        
+
         int max = 0;
         for (int item : myArray) {
             if (item >= max) {
@@ -33,7 +30,7 @@ public class ArraySubcClass {
     }
 
     public int minValue(int[] myArray) {
-        
+
         int min = myArray[0];
         for (int item : myArray) {
             if (item <= min) {
@@ -44,10 +41,9 @@ public class ArraySubcClass {
     }
 
     public void avgArrays(int[] myArray) {
-       
 
         int sum = 0;
-        for (int item:myArray) {
+        for (int item : myArray) {
             sum += item;
         }
 
@@ -55,8 +51,8 @@ public class ArraySubcClass {
     }
 
     public void oddEvenNumber(int[] myArray) {
-       
-        for (int item:myArray) {
+
+        for (int item : myArray) {
             if (item % 2 == 0) {
                 System.out.println(item + " is even number");
             } else {
@@ -64,8 +60,31 @@ public class ArraySubcClass {
             }
         }
     }
+
+    public void findPrimeNumber(int[] myArray) {
+
+        int i = 0;
+        for (int item : myArray) {
+            for (int j = 1; j <= myArray.length; j++) {
+                if (item % j == 0) {
+                    i++;
+                }
+                
+            }
+            System.out.println(findPrimeNumber(i, item));
+
+            
+        }
+
+    }
     
-   
+    private String findPrimeNumber(int i, int item){
+        if (i == 2) {
+                return (item + " is a prime number");
+            } else {
+                return (item + " is not a prime number");
+            }
     
-    
+    }
+
 }
