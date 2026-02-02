@@ -1,6 +1,7 @@
 package practicepart.arraysubclass;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class ArraySubcClass {
 
@@ -97,5 +98,36 @@ public class ArraySubcClass {
             return false;
         }
 
+    }
+
+
+    public void arrayPrime(int[] array){
+        
+        
+         int i = 0;
+        for(int item : array) {
+            if(isPrime(item)){
+                i++;
+            }
+        }
+        
+        System.out.println(Arrays.toString(newArray(i, array)));
+        
+    }
+    
+     
+    
+    public int[] newArray(int p, int[] array){
+        int[] primeArray = new int[p];
+        int i = 0;
+        for(int item : array){
+            if(isPrime(item)){
+                primeArray[i] = item;
+                i++;
+            }
+        }
+        
+        
+        return primeArray;
     }
 }
