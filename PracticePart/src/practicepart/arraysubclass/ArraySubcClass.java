@@ -66,38 +66,36 @@ public class ArraySubcClass {
         int i = 0;
         for (int item : myArray) {
             if(isPrime(item)){
-System.out.println(item + " is a prime number");
+                System.out.println(item + " is a prime number");
 
-} else {
-System.out.println(item + " is not a prime number");
-}
+            } else {
+                System.out.println(item + " is not a prime number");
             }
-            
-            
         }
+            
+            
+    }
 
     
     
     private boolean isPrime(int item){
-int c = 0;
+        int c = 0;
         
-for(int i = 1; i<= item; i++){
-if(item % i == 0){
-    c++;
-}
+        for(int i = 1; i<= item; i++){
+            if(item % i == 0){
+                c++;
+            }
 
-}
+        }
 
-if(c <= 2){
-    c = 0;
-    return true;
+        if(c <= 2){
+            c = 0;
+            return true;
     
-} else{
-    c = 0;
-    return false;
-}
+        } else{
+            c = 0;
+            return false;
+        }
 
-
-    
     }
 }
