@@ -1,24 +1,30 @@
-
 package practicepart;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class PracticePart {
 
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+
+        String[] stu = new String[14];
+        int[] stuAge = new int[14];
+
+        stu[0] = "Emon";
+        stu[1] = "Badrul";
+
+        stuAge[0] = 22;
+        stuAge[1] = 25;
         
-        int a = s.nextInt();
+        int[] number = {10,20,30,60,40,50};
         
-        int i = 1;
-        int b = 1;
-        while(i <= a){
-            b *= i;
-            i++;
-        }
         
-        System.out.println(b);
-  
+        System.out.println(Arrays.toString(number));
+        System.out.println(Arrays.toString(stuAge));
+        System.out.println(Arrays.toString(stu));
+        
+        
+        
+
     }
-    
+
 }
