@@ -17,12 +17,15 @@ public class ArrayPractice {
         System.out.println("Your Max value is " + ab.maxValue(arrays));
         System.out.println("Your Min value is " + ab.minValue(arrays));
         ab.avgArrays(arrays);
-
+        
         System.out.println(" \nFinding odd even number in arrays");
         ab.oddEvenNumber(arrays);
         
         System.out.println(" \nFinding prime number in arrays");
         ab.findPrimeNumber(arrays);
+
+        System.out.println(" \n Only Storing Prime numbers in array from an array");
+        ab.arrayPrime(array);
         
     }
 
