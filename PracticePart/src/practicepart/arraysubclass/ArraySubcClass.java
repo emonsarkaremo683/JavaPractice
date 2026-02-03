@@ -66,8 +66,17 @@ public class ArraySubcClass {
 
         int i = 0;
         for (int item : myArray) {
+<<<<<<< Updated upstream
             if(isPrime(item)){
                 System.out.println(item + " is a prime number");
+=======
+            for (int j = 1; j <= myArray.length; j++) {
+                if (item % j == 0) {
+                    i++;
+                }               
+            }
+            System.out.println(findPrimeNumber(i, item));
+>>>>>>> Stashed changes
 
             } else {
                 System.out.println(item + " is not a prime number");
