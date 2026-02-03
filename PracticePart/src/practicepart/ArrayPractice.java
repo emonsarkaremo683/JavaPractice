@@ -1,5 +1,6 @@
 package practicepart;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import practicepart.arraysubclass.ArraySubcClass;
 
@@ -18,14 +19,17 @@ public class ArrayPractice {
         System.out.println("Your Min value is " + ab.minValue(arrays));
         ab.avgArrays(arrays);
         
-        System.out.println(" \nFinding odd even number in arrays");
+        System.out.println("\nFinding odd even number in arrays");
         ab.oddEvenNumber(arrays);
         
-        System.out.println(" \nFinding prime number in arrays");
+        System.out.println("\nFinding prime number in arrays");
         ab.findPrimeNumber(arrays);
 
-        System.out.println(" \n Only Storing Prime numbers in array from an array");
-        ab.arrayPrime(array);
+        System.out.println("\n Only Storing Prime numbers in array from an array");
+        ab.arrayPrime(arrays);
+        
+        System.out.println("\n Bubble sorting from array \n" + Arrays.toString(ab.bubbleSort(arrays)));
+        
         
     }
 

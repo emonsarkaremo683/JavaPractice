@@ -66,77 +66,87 @@ public class ArraySubcClass {
 
         int i = 0;
         for (int item : myArray) {
-<<<<<<< Updated upstream
-            if(isPrime(item)){
+
+            if (isPrime(item)) {
                 System.out.println(item + " is a prime number");
-=======
-            for (int j = 1; j <= myArray.length; j++) {
-                if (item % j == 0) {
-                    i++;
-                }               
-            }
-            System.out.println(findPrimeNumber(i, item));
->>>>>>> Stashed changes
+
+                for (int j = 1; j <= myArray.length; j++) {
+                    if (item % j == 0) {
+                        i++;
+                    }
+                }
 
             } else {
                 System.out.println(item + " is not a prime number");
             }
         }
-            
-            
+
     }
 
-    
-    
-    private boolean isPrime(int item){
+    private boolean isPrime(int item) {
         int c = 0;
-        
-        for(int i = 1; i<= item; i++){
-            if(item % i == 0){
+
+        for (int i = 1; i <= item; i++) {
+            if (item % i == 0) {
                 c++;
             }
 
         }
 
-        if(c <= 2){
+        if (c <= 2) {
             c = 0;
             return true;
-    
-        } else{
+
+        } else {
             c = 0;
             return false;
         }
 
     }
+    
+    // only storing prime numbers
 
+    public void arrayPrime(int[] array) {
 
-    public void arrayPrime(int[] array){
-        
-        
-         int i = 0;
-        for(int item : array) {
-            if(isPrime(item)){
+        int i = 0;
+        for (int item : array) {
+            if (isPrime(item)) {
                 i++;
             }
         }
-        
+
         System.out.println(Arrays.toString(newArray(i, array)));
-        
+
     }
-    
-     
-    
-    public int[] newArray(int p, int[] array){
+
+    public int[] newArray(int p, int[] array) {
         int[] primeArray = new int[p];
         int i = 0;
-        for(int item : array){
-            if(isPrime(item)){
+        for (int item : array) {
+            if (isPrime(item)) {
                 primeArray[i] = item;
                 i++;
             }
+
         }
-        
-        
+
         return primeArray;
     }
+    
+    // Bubble sorting
+
+    public int[] bubbleSort(int[] array) {
+
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+        return array;
+    }
+
 }
