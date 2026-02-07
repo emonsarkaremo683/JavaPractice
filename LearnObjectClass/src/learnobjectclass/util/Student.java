@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Student {
 
-    public int id;
-    public String name;
-    public String email;
-    public String phoneNumber;
-    public String fatherName;
-    public String motherName;
+    private int id;
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private String fatherName;
+    private String motherName;
     public Date dob;
     public String course;
     public String centerName;
@@ -37,14 +37,64 @@ public class Student {
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
+    
+    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getFatherName() {
+        return fatherName;
+    }
+
+    public void setFatherName(String fatherName) {
+        this.fatherName = fatherName;
+    }
+
+    public String getMotherName() {
+        return motherName;
+    }
+
+    public void setMotherName(String motherName) {
+        this.motherName = motherName;
+    }
 
     @Override
     public String toString() {
-        return  "id = " + id + 
-                ",\nname = " + name + 
-                ",\nemail = " + email + 
-                ",\nphoneNumber = " + phoneNumber;
+        return "Student{" + "id=" + id + ", name=" + name + ", email=" + email + ", phoneNumber=" + phoneNumber + '}';
     }
+
+   
+    
     
 
 }
