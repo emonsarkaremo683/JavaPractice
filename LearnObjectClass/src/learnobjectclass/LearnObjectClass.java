@@ -27,7 +27,7 @@ public class LearnObjectClass {
                 "emonsarkar.emo683@gmail.com",
                 "01531767051");
         
-        System.out.println(s.toString());
+        System.out.println(s);
     }
     
 }
