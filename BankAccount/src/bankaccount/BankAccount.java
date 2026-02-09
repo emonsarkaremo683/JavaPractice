@@ -15,6 +15,7 @@ public class BankAccount {
         
         bq.setWithdraw(1000);
         System.out.println(bq.getBalance());
+      
     }
 
 }
