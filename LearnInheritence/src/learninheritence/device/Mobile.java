@@ -1,6 +1,9 @@
 
 package learninheritence.device;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class Mobile extends Device{
     
@@ -51,6 +54,7 @@ public class Mobile extends Device{
     @Override
     public String toString() {
         System.out.println(super.toString());
+       
         return "Mobile{" + "OS=" + OS + ", isCall=" + isCall + ", isVideoCall=" + isVideoCall + '}';
     }
     

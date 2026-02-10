@@ -23,6 +23,9 @@ public class LearnInheritence {
         
         
         
+        System.out.println(m.getOS());
+        
+        
         
         
     }
