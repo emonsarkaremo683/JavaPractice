@@ -9,13 +9,15 @@ public class Exam2 {
         Scanner s = new Scanner(System.in);
 
 //        checkPrime(s.nextInt());
-        int[] array;
-        array = new int[5];
-        for (int i = 0; i < array.length; i++) {
-            System.out.println("Enter" + (i + 1) + " number");
-            array[i] = s.nextInt();
-        }
-        maxMix(array);
+//        int[] array;
+//        array = new int[5];
+//        for (int i = 0; i < array.length; i++) {
+//            System.out.println("Enter " + (i + 1) + " number");
+//            array[i] = s.nextInt();
+//        }
+//        maxMix(array);
+        
+        fibonacci(8);
 
     }
 
@@ -55,4 +57,16 @@ public class Exam2 {
 
     }
 
+    
+    static void fibonacci(int n){
+        int i = 0;
+        int j = 1;
+        System.out.print(i + " " + j + " ");
+        for(int k = 1; k<n-1; k++ ){
+            int temp = i + j;
+            i = j;
+            j = temp;
+            System.out.print(temp + " ");
+        }
+    }
 }
