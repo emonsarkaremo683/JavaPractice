@@ -2,7 +2,7 @@
 package com.ensark.evdexam.Inherit;
 
 public class Truck extends Vehicle{
-    
+
     int weight;
 
     public Truck(int weight) {
@@ -21,7 +21,7 @@ public class Truck extends Vehicle{
         }
         return regularPrice;
     }
-    
+
     
     
 }
