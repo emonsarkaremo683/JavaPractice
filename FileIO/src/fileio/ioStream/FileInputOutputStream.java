@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class FileInputOutputStream {
 
     public static void main(String[] args) {
-        File file = new File("Emon.txt");
+        File file = new File("Emon.dat");
 
         try {
             file.createNewFile();
