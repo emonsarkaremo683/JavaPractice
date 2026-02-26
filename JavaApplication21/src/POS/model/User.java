@@ -1,5 +1,5 @@
 
-package javaapplication21.model;
+package POS.model;
 
 
 public class User {

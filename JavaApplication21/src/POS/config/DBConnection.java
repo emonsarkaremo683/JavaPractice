@@ -1,5 +1,5 @@
 
-package javaapplication21.config;
+package POS.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
