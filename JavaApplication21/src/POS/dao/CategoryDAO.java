@@ -18,7 +18,7 @@ public class CategoryDAO implements DaoService<Category> {
     private PreparedStatement ps;
     ResultSet rs;
     String sql = "";
-    Category c = new Category();
+    Category c;
 
     @Override
     public void save(Category e) {
@@ -46,7 +46,7 @@ public class CategoryDAO implements DaoService<Category> {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                
+                c = new Category();
                 c.setId(rs.getInt("id"));
                 c.setName(rs.getString("name"));
                 list.add(c);
@@ -61,6 +61,7 @@ public class CategoryDAO implements DaoService<Category> {
     @Override
     public void update(Category e) {
         sql = "update category set name = ? where id = ?";
+
 
         try {
             ps = dbc.getConn().prepareStatement(sql);
@@ -77,7 +78,7 @@ public class CategoryDAO implements DaoService<Category> {
     @Override
     public Category findById(int id) {
         sql = "select * from category where id = ?";
-        
+        c = new Category();
         try {
             ps = dbc.getConn().prepareStatement(sql);
             rs = ps.executeQuery();
