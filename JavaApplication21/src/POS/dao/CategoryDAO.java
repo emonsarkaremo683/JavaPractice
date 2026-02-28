@@ -39,14 +39,14 @@ public class CategoryDAO implements DaoService<Category> {
 
     @Override
     public List<Category> findAll() {
-        sql = "select * from category";
+        sql = "select * from category order by id";
         List<Category> list = new ArrayList<>();
         try {
             ps = dbc.getConn().prepareStatement(sql);
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                
+                c = new Category();
                 c.setId(rs.getInt("id"));
                 c.setName(rs.getString("name"));
                 list.add(c);
@@ -77,13 +77,19 @@ public class CategoryDAO implements DaoService<Category> {
     @Override
     public Category findById(int id) {
         sql = "select * from category where id = ?";
-        
+
         try {
             ps = dbc.getConn().prepareStatement(sql);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
-
-            c.setId(rs.getInt("id"));
-            c.setName(rs.getString("name"));
+            if (rs.next()) {
+                c = new Category();
+                c.setId(rs.getInt("id"));
+                c.setName(rs.getString("name"));
+            }
+            ps.close();
+            rs.close();
+            dbc.getConn().close();
 
         } catch (SQLException ex) {
             Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -96,11 +102,14 @@ public class CategoryDAO implements DaoService<Category> {
         sql = "delete from category where Id = ?";
         try {
             ps = dbc.getConn().prepareStatement(sql);
-            ps.executeQuery();
+
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            ps.close();
+            dbc.getConn().close();
         } catch (SQLException ex) {
             Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
 
     }
 
