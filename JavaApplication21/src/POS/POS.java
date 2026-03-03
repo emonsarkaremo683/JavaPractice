@@ -1,9 +1,7 @@
 package POS;
 
 import POS.dao.CategoryDAO;
-import POS.dao.UserDAO;
 import POS.model.Category;
-import POS.model.User;
 
 public class POS {
 
@@ -16,7 +14,6 @@ public class POS {
         Category c = new Category(1, "Banana");
         CategoryDAO cd = new CategoryDAO();
         cd.update(c);
-
     }
 
 }

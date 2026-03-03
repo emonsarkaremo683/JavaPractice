@@ -238,9 +238,7 @@ public class CategoryView extends javax.swing.JFrame {
         int rowIndex = jTable1.getSelectedRow();
         Object value = jTable1.getModel().getValueAt(rowIndex, 0);
         id = Integer.parseInt(value.toString());
-
         Emon e = new Emon(id);
-       
         e.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jTable1MouseClicked
