@@ -13,6 +13,11 @@ public class PrimeNumber {
     }
     
     static void checkPrime(int n) {
+        
+        if(n == 0){
+            System.out.println("Zero is neither prime nor composite");
+            return;
+        }
         int count = 0;
         
         
