@@ -18,7 +18,7 @@ public class CategoryDAO implements DaoService<Category> {
     private PreparedStatement ps;
     ResultSet rs;
     String sql = "";
-    Category c = new Category();
+    Category c;
 
     @Override
     public void save(Category e) {
