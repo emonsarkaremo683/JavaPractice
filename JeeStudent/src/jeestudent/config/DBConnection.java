@@ -7,6 +7,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DBConnection {
+    
+    
 
     String url = "jdbc:mysql://localhost:3306/jeestore";
     String user = "root";
