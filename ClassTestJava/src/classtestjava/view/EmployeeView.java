@@ -18,6 +18,8 @@ public class EmployeeView extends javax.swing.JFrame {
     /**
      * Creates new form EmployeeView
      */
+    int id;
+
     public EmployeeView() {
         initComponents();
         loadData();
@@ -32,6 +34,37 @@ public class EmployeeView extends javax.swing.JFrame {
                 Double.parseDouble(e_salary.getText()));
 
         dao.saveUser(emp);
+        clearData();
+        loadData();
+
+    }
+
+    public void selectData() {
+        int rowIndex = table.getSelectedRow();
+        id = (int) table.getModel().getValueAt(rowIndex, 0);
+        e_id.setText(String.valueOf(id));
+        eName.setText((String) table.getModel().getValueAt(rowIndex, 1));
+        e_email.setText((String) table.getModel().getValueAt(rowIndex, 2));
+
+        e_salary.setText(String.valueOf(table.getModel().getValueAt(rowIndex, 3)));
+
+    }
+
+    public void deleteData() {
+
+        new EmployeeDao().delete(id);
+        clearData();
+        loadData();
+
+    }
+
+    public void updateData() {
+        emp = new Employee(Integer.parseInt(e_id.getText()),
+                eName.getText().trim(),
+                e_email.getText().trim(),
+                Double.parseDouble(e_salary.getText()));
+
+        dao.update(emp);
         clearData();
         loadData();
 
@@ -58,11 +91,9 @@ public class EmployeeView extends javax.swing.JFrame {
                 e.getEmail(),
                 e.getSalary()
             });
-           
 
         }
         table.setModel(model);
-        
 
     }
 
@@ -229,6 +260,11 @@ public class EmployeeView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(table);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -280,15 +316,23 @@ public class EmployeeView extends javax.swing.JFrame {
 
     private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
         // TODO add your handling code here:
+        updateData();
     }//GEN-LAST:event_updateMouseClicked
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
         // TODO add your handling code here:
+
+        deleteData();
     }//GEN-LAST:event_deleteMouseClicked
 
     private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
         // TODO add your handling code here:
+        clearData();
     }//GEN-LAST:event_clearMouseClicked
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        selectData();
+    }//GEN-LAST:event_tableMouseClicked
 
     /**
      * @param args the command line arguments
