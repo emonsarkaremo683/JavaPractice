@@ -23,13 +23,14 @@ public class StudentView extends javax.swing.JFrame {
     public StudentView() {
         initComponents();
         loadData();
+
     }
 
     public void saveData() {
         dao = new StudentDao();
         String nameStu = name.getText().trim();
         String emailStu = email.getText().trim();
-        String cnStu = courseName.getText().trim();
+        String cnStu = comboCourseName.getSelectedItem().toString();
 
         Student st = new Student(nameStu, emailStu, cnStu);
 
@@ -43,10 +44,18 @@ public class StudentView extends javax.swing.JFrame {
         name.setText("");
         id.setText("");
         email.setText("");
-        courseName.setText("");
+        comboCourseName.setSelectedIndex(0);
+
     }
 
     public void loadData() {
+        String[] courseName = {"JEE", "WDPF", "Networking"};
+        comboCourseName.removeAllItems();
+        comboCourseName.addItem("---Select Item---");
+        for (String item : courseName) {
+            comboCourseName.addItem(item);
+        }
+
         dao = new StudentDao();
         List<Student> jList = dao.findAll();
 
@@ -74,7 +83,7 @@ public class StudentView extends javax.swing.JFrame {
         dao = new StudentDao();
         String nameStu = name.getText().trim();
         String emailStu = email.getText().trim();
-        String cnStu = courseName.getText().trim();
+        String cnStu = comboCourseName.getSelectedItem().toString();
         int idStu = Integer.parseInt(id.getText());
 
         Student st = new Student(idStu, nameStu, emailStu, cnStu);
@@ -111,11 +120,11 @@ public class StudentView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        courseName = new javax.swing.JTextField();
         save = new javax.swing.JButton();
         update = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         clear = new javax.swing.JButton();
+        comboCourseName = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableList = new javax.swing.JTable();
 
@@ -158,12 +167,6 @@ public class StudentView extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Course Name");
-
-        courseName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                courseNameActionPerformed(evt);
-            }
-        });
 
         save.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         save.setText("Save");
@@ -211,6 +214,8 @@ public class StudentView extends javax.swing.JFrame {
             }
         });
 
+        comboCourseName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -233,8 +238,8 @@ public class StudentView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(courseName, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                        .addComponent(comboCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,11 +262,11 @@ public class StudentView extends javax.swing.JFrame {
                         .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(courseName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboCourseName, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,10 +325,6 @@ public class StudentView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void courseNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_courseNameActionPerformed
-
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_updateActionPerformed
@@ -342,7 +343,10 @@ public class StudentView extends javax.swing.JFrame {
         id.setText(String.valueOf(tableList.getModel().getValueAt(rowIndex, 0)));
         name.setText((String) tableList.getModel().getValueAt(rowIndex, 1));
         email.setText((String) tableList.getModel().getValueAt(rowIndex, 2));
-        courseName.setText((String) tableList.getModel().getValueAt(rowIndex, 3));
+        String courseName = tableList.getModel().getValueAt(rowIndex, 3).toString();
+
+        comboCourseName.setSelectedItem(courseName);
+
     }//GEN-LAST:event_tableListMouseClicked
 
     private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
@@ -350,11 +354,11 @@ public class StudentView extends javax.swing.JFrame {
     }//GEN-LAST:event_updateMouseClicked
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-       deleteData();
+        deleteData();
     }//GEN-LAST:event_deleteMouseClicked
 
     private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
-       clearData();
+        clearData();
     }//GEN-LAST:event_clearMouseClicked
 
     /**
@@ -394,7 +398,7 @@ public class StudentView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clear;
-    private javax.swing.JTextField courseName;
+    private javax.swing.JComboBox<String> comboCourseName;
     private javax.swing.JButton delete;
     private javax.swing.JTextField email;
     private javax.swing.JTextField id;
