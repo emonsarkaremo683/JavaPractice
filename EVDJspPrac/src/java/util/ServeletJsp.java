@@ -50,7 +50,7 @@ public class ServeletJsp extends HttpServlet {
                     Double.parseDouble(request.getParameter("fee")));
             
             dao.saveData(s);
-            response.sendRedirect("/pages/index.jsp");
+            request.getRequestDispatcher("/pages/index.jsp").forward(request, response);
             
         } else if("update".equalsIgnoreCase(action)){
             
@@ -60,7 +60,8 @@ public class ServeletJsp extends HttpServlet {
                     Double.parseDouble(request.getParameter("fee")));
             
             dao.updateData(s);
-            response.sendRedirect("/pages/index.jsp");
+           request.setAttribute("", s);
+           request.getRequestDispatcher("/pages/index.jsp").forward(request, response);
         
         }
 
