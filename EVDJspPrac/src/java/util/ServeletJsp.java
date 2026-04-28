@@ -30,6 +30,10 @@ public class ServeletJsp extends HttpServlet {
            response.sendRedirect("/pages/index.jsp");
        
        } else if("edit".equalsIgnoreCase(action)){
+           int id = Integer.parseInt(request.getParameter("id"));
+           Student s = dao.findById(id);
+           request.setAttribute("student", s);
+           request.getRequestDispatcher("/pages/edit.jsp").forward(request, response);
        
        }
     }
@@ -46,7 +50,7 @@ public class ServeletJsp extends HttpServlet {
                     Double.parseDouble(request.getParameter("fee")));
             
             dao.saveData(s);
-            response.sendRedirect("pages/index.jsp");
+            response.sendRedirect("/pages/index.jsp");
             
         } else if("update".equalsIgnoreCase(action)){
             
@@ -56,7 +60,7 @@ public class ServeletJsp extends HttpServlet {
                     Double.parseDouble(request.getParameter("fee")));
             
             dao.updateData(s);
-            response.sendRedirect("pages/index.jsp");
+            response.sendRedirect("/pages/index.jsp");
         
         }
 
