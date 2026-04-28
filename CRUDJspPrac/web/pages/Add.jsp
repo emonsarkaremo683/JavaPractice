@@ -225,7 +225,7 @@
             </div>
         </div>
         
-        <form action="/CRUDJspPrac/employee" method="post" onsubmit="return validateForm()">
+        <form action="/employee" method="post" onsubmit="return validateForm()">
             <input type="hidden" name="action" value="add" />
             
             <div class="form-group">

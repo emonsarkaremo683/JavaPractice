@@ -271,10 +271,10 @@
                                     <td>${emp.joiningDate}</td>
                                     <td>
                                         <div class="action-buttons">
-                                            <a href="/CRUDJspPrac/employee?action=edit&id=${emp.id}" class="btn-action btn-edit">
+                                            <a href="/employee?action=edit&id=${emp.id}" class="btn-action btn-edit">
                                                 <i class="bi bi-pencil-square"></i> Edit
                                             </a>
-                                            <a href="/CRUDJspPrac/employee?action=delete&id=${emp.id}" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to delete this employee?');">
+                                            <a href="/employee?action=delete&id=${emp.id}" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to delete this employee?');">
                                                 <i class="bi bi-trash"></i> Delete
                                             </a>
                                         </div>
